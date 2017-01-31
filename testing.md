@@ -189,6 +189,32 @@ If you need a helping hand during development, feel free to write extra tests. I
 delete them in the end (having one reliable unit test), it is up to. Tests come and go, they are
 modified, rewritten, deleted, added all the time.
 
+## Stubbing external dependencies
+
+* node context: wrapper object (`index.js`)
+* node context: [proxyquire](https://github.com/thlorenz/proxyquire)
+* es6 imports via babel: `* as`
+
+Es6 * default example:
+
+```
+import * as monthlyPricesWrapper from './monthly-prices';
+describe('/utils/fare-finder/all-days', () => {
+    let monthlyPricesStub;
+    beforeEach(function() {
+        monthlyPricesStub = this.sandbox.stub(monthlyPricesWrapper, 'default');
+    });
+```
+
+BUT: es6 imports should be [immutable](http://www.2ality.com/2017/01/babel-esm-spec-mode.html)!
+If babel fixes this, this will no longer work. :bomb:
+
+Possible solutions:
+
+* [webpack inject loader](https://github.com/plasticine/inject-loader)?
+* [proxyquire universal](https://github.com/bendrucker/proxyquire-universal)?
+* we already wrap the require function, maybe we can come up with a clever hack
+
 ## Testing private code
 
 Private methods should **not** be tested per definitionem, but I usually expose them for my own sake.
