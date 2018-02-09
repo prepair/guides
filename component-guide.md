@@ -15,7 +15,7 @@
     - [Don't use `events` option](#dont-use-events-option)
     - [Use filters only in mustache interpolation and `v-bind` expressions](#use-filters-only-in-mustache-interpolation-and-v-bind-expressions)
     - [Don't use interpolation within attributes](#dont-use-interpolation-within-attributes)
-    - [Use `v-html` instead of HTML interpolation (`{{{ somePropWithHtml }}}`)](#use-v-html-instead-of-html-interpolation-somepropwithhtml)
+    - [Use `v-html` instead of HTML interpolation](#use-v-html-instead-of-html-interpolation)
   - [Tools](#tools)
     - [$emit](#emit)
     - [emit/emitOnNextTick/eventBusMixin](#emitemitonnexttickeventbusmixin)
@@ -389,7 +389,9 @@ computed: {
 }
 ```
 
-### Use `v-html` instead of HTML interpolation (`{{{ somePropWithHtml }}}`)
+### Use `v-html` instead of HTML interpolation
+
+- so replace `{{{ somePropWithHtml }}}` with `v-html`
 
 ## Tools
 
