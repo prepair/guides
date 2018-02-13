@@ -226,6 +226,8 @@ methods: {
 
 ### Modal is only in the DOM when it needs to be displayed (`v-if`)
 
+**Note** Transitions may not work with this approach.
+
 **Pros**
 
 - Modal is not "alive" when it is not visible so it won't react to global events, store changes, prop changes, etc.
