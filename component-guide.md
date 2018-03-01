@@ -22,7 +22,7 @@
     - [get/set computed](#getset-computed)
     - [one-way-computed-prop/one-way-computed-props](#one-way-computed-propone-way-computed-props)
     - [v-model](#v-model)
-    - [v-one-way-model](#v-one-way-model)
+    - [~~v-one-way-model~~](#v-one-way-model)
 
 ## Do's and Don'ts
 
@@ -174,6 +174,8 @@ props: {
 <input type="text" v-model="externalProp">
 ```
 
+<strike>
+
 ```javascript
 // OK
 // v-one-way-model
@@ -186,6 +188,8 @@ props: {
 // component/template.html
 <input type="text" v-one-way-model="externalProp"> <!-- will emit `update:external-prop` event by default -->
 ```
+
+</strike>
 
 ```javascript
 // OK
@@ -471,7 +475,11 @@ computed: {
 
 **Doc**: [API/v-model](https://v1.vuejs.org/api/#v-model)
 
-### v-one-way-model
+### ~~v-one-way-model~~
+
+**Note**: use [**get/set computed**](#getset-computed) or [`oneWayComputedProp`/`oneWayComputedProps`](#one-way-computed-propone-way-computed-props) instead until this gets implemented properly in Vue 2 (vue2 fork)
+
+<strike>
 
 **Doc**: `app/scripts/directives/one-way-model`
 
@@ -483,3 +491,5 @@ computed: {
 **Cons**
 
 - it only works well with templates, if you want to mutate a **prop** from the **vm** or from the **vm** too you may use [**get/set computed**](#getset-computed) or [`oneWayComputedProp`/`oneWayComputedProps`](#one-way-computed-propone-way-computed-props)
+
+</strike>
