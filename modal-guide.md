@@ -1,6 +1,6 @@
-# Modal Guide for Vue "1.5"
+# Modal Guide
 
-- [Modal Guide for Vue "1.5"](#modal-guide-for-vue-15)
+- [Modal Guide](#modal-guide)
   - [Types of modals](#types-of-modals)
     - [base modal](#base-modal)
     - [confirmation modal](#confirmation-modal)

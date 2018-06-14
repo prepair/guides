@@ -20,7 +20,7 @@
     - [$emit](#emit)
     - [emit/emitOnNextTick/eventBusMixin](#emitemitonnexttickeventbusmixin)
     - [get/set computed](#getset-computed)
-    - [one-way-computed-prop/one-way-computed-props](#one-way-computed-propone-way-computed-props)
+    - [map-one-way-prop/map-one-way-props](#map-one-way-propmap-one-way-props)
     - [v-model](#v-model)
     - [~~v-one-way-model~~](#v-one-way-model)
 
@@ -76,10 +76,10 @@ methods: {
 
 ```javascript
 // OK
-// oneWayComputedProp creator
+// mapOneWayProp creator
 computed: {
   // will emit 'update:external-prop' event by default with the new value
-  externalPropInt: oneWayComputedProp('externalProp')
+  externalPropInt: mapOneWayProp('externalProp')
 },
 
 methods: {
@@ -92,9 +92,9 @@ methods: {
 
 ```javascript
 // OK
-// oneWayComputedProps creator
+// mapOneWayProps creator
 computed: {
-  ...oneWayComputedProps({
+  ...mapOneWayProps({
     'externalProp1Int': 'externalProp1', // will emit 'update:external-prop1' event by default with the new value
     'externalProp2Int': 'externalProp2', // will emit 'update:external-prop2' event by default with the new value
   })
@@ -193,7 +193,7 @@ props: {
 
 ```javascript
 // OK
-// oneWayComputed + v-model
+// one way computed + v-model
 
 // component/index.js
 props: {
@@ -201,7 +201,7 @@ props: {
 },
 
 computed: {
-  externalPropInt: oneWayComputedProp('externalPropInt')
+  externalPropInt: mapOneWayProp('externalPropInt')
 }
 
 // component/template.html
@@ -449,13 +449,13 @@ computed: {
 **Cons**
 
 - you need to create a **new prop** with a **new name** (`isLoading` => `isLoadingInt`)
-- could be boilerplate => use the more compact [`oneWayComputedProp`/`oneWayComputedProps`](#one-way-computed-propone-way-computed-props) if applicable
+- could be boilerplate => use the more compact [`mapOneWayProp`/`mapOneWayProps`](#map-one-way-propmap-one-way-props) if applicable
 
-### one-way-computed-prop/one-way-computed-props
+### map-one-way-prop/map-one-way-props
 
-**Doc**: `app/scripts/utils/component/one-way-computed-prop`
+**Doc**: `app/scripts/utils/component/map-one-way-prop`
 
-**Doc**: `app/scripts/utils/component/one-way-computed-props`
+**Doc**: `app/scripts/utils/component/map-one-way-props`
 
 **Pros**
 
@@ -477,7 +477,7 @@ computed: {
 
 ### ~~v-one-way-model~~
 
-**Note**: use [**get/set computed**](#getset-computed) or [`oneWayComputedProp`/`oneWayComputedProps`](#one-way-computed-propone-way-computed-props) instead until this gets implemented properly in Vue 2 (vue2 fork)
+**Note**: use [**get/set computed**](#getset-computed) or [**mapOneWayProp**/**mapOneWayProps**](#map-one-way-propmap-one-way-props) instead until this gets implemented properly in Vue 2 (vue2 fork)
 
 <strike>
 
@@ -490,6 +490,6 @@ computed: {
 
 **Cons**
 
-- it only works well with templates, if you want to mutate a **prop** from the **vm** or from the **vm** too you may use [**get/set computed**](#getset-computed) or [`oneWayComputedProp`/`oneWayComputedProps`](#one-way-computed-propone-way-computed-props)
+- it only works well with templates, if you want to mutate a **prop** from the **vm** or from the **vm** too you may use [**get/set computed**](#getset-computed) or [`mapOneWayProp`/`mapOneWayProps`](#map-one-way-propmap-one-way-props)
 
 </strike>
